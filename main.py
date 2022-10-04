@@ -1,7 +1,7 @@
 import numpy as np
 
-import distance_matrix
-import reduction
+from . import distance_matrix
+from . import reduction
 
 class equdistant_power():
     
