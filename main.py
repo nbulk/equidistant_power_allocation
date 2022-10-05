@@ -40,10 +40,10 @@ class equdistant_power():
         self.reduced_noma = np.matmul(self.reduce_matrix , self.norm_distance_noma)
         self.powerfactor = np.matmul(self.inverse_dist_matrix, self.reduced_noma)
         
-        return self.powerfactor
+        return self.powerfactor**2
     
     def get_powerfactors(self):
-        return self.powerfactor
+        return self.powerfactor**2
 
 
 # if __name__ == "__main__":
