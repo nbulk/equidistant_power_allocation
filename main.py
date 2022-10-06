@@ -1,7 +1,10 @@
 import numpy as np
 
-from . import distance_matrix
-from . import reduction
+#from . import distance_matrix
+#from . import reduction
+
+import distance_matrix
+import reduction
 
 class equdistant_power():
     
@@ -17,14 +20,14 @@ class equdistant_power():
         return dist_matrix
         
     def __calculate_reduction_matrix(self):
-        reduction_matrix = reduction.reduction_matrix(self.no_user, np.array(np.log2(self.modulation),dtype=int))
+        reduction_matrix = reduction.reduction_matrix(self.modulation)
         matrix = reduction_matrix.main()
         
         return matrix
         
     def __calculate_dist_matrix_noma(self):
         noma_user = 1
-        noma_modulation = np.array([np.product(self.modulation)])
+        noma_modulation = np.array([np.sum(self.modulation)])
         noma_power = distance_matrix.distance_matrix_generator(noma_user, noma_modulation)
         norm_distance_noma = noma_power.dist_input()
         
@@ -46,23 +49,9 @@ class equdistant_power():
         return self.powerfactor**2
 
 
-# if __name__ == "__main__":
-#     modulation = np.array([2,4,8])
-#     no_user = np.arange(2,10)
-    
-#     powerfactor = np.zeros((8,8,8))
-    
-#     for user in enumerate(no_user):
-#         for modu in enumerate(modulation):
-#             noma_modu = np.ones(user[1])*modu[1]
-#             allocator = equdistant_power(modulation)
-#             powerfactor = allocator.main()
-#             powerfactor = powerfactor**2
-
-
 
 if __name__ == "__main__":
-    modulation = np.array([4,4,4])
+    modulation = np.array([2,6])
     allocator = equdistant_power(modulation)
     powerfactors = allocator.main()
     print(powerfactors)

@@ -4,8 +4,12 @@ class distance_matrix_generator():
     
     def __init__(self, no_user, modulation):
         self.no_user = no_user
-        self.modulation = modulation
-        self.number_bits = np.array(np.log2(modulation), dtype = int)
+        M = 2**modulation
+        N = np.sqrt(M)
+               
+        self.modulation = N
+        
+        self.number_bits = np.array(np.log2(N), dtype = int)
 
     def __calculate_rms(self,modulation):
         return (modulation**2-1)/3
@@ -41,6 +45,6 @@ class distance_matrix_generator():
         return self.dist_matrix
     
 if __name__ == "__main__":
-    test = distance_matrix_generator(3,np.array([8,4,4]))
+    test = distance_matrix_generator(3,np.array([6,4,4]))
     dist_matrix = test.dist_input()
     print(dist_matrix)

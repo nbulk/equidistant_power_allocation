@@ -2,9 +2,12 @@ import numpy as np
 
 class reduction_matrix():
     
-    def __init__(self,number_of_layer, number_bits_per_layer):
-        self.number_layer = number_of_layer
-        self.bits_layer = number_bits_per_layer
+    def __init__(self,modulation):
+        M = 2** modulation
+        N = np.sqrt(M)
+        self.bits_layer = np.array(np.log2(N), dtype = int)
+        
+        self.number_layer = len(modulation)
         
     def __calculate_no_bits(self):
         self.final_bits = np.sum(self.bits_layer)
@@ -32,6 +35,7 @@ class reduction_matrix():
             
             
 if __name__ == "__main__":
-    modulation = np.array([4,4])
-    temp = reduction_matrix(2, modulation//2)
+    modulation = np.array([2,6])
+    temp = reduction_matrix(modulation)
     matrix = temp.main()
+    print(matrix)
