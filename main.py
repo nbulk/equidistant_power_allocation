@@ -1,10 +1,10 @@
 import numpy as np
 
-#from . import distance_matrix
-#from . import reduction
+from . import distance_matrix
+from . import reduction
 
-import distance_matrix
-import reduction
+#import distance_matrix
+#import reduction
 
 class equdistant_power():
     
@@ -51,7 +51,7 @@ class equdistant_power():
 
 
 if __name__ == "__main__":
-    modulation = np.array([2,6])
+    modulation = np.array([2,2,6])
     allocator = equdistant_power(modulation)
     powerfactors = allocator.main()
     print(powerfactors)
