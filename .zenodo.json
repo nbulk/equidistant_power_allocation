@@ -1,0 +1,21 @@
+
+{
+    "title": "Equidistant Power Allocation Scheme for NOMA",
+    "description": "The *equidistant_power_allocation* project is a Free Software Package which aims to provide a power allocation scheme for equidistant constellation points.",
+    "license": {
+        "id": "GPL-3.0-or-later"
+    },
+    "keywords": [
+        "communication",
+        "power allocation scheme",
+        "NOMA",
+        "Python"
+    ],
+    "creators": [
+        {
+            "affiliation": "Department of Communications Engineering, University of Bremen, Germany",
+            "name": "Bulk, Niklas",
+            "orcid": "0000-0002-4585-0418"
+        }
+    ]
+}
